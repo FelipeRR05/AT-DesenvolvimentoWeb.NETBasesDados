@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem-vindo à Agência de Turismo</h1>
+    <p>Os melhores destinos para suas férias dos sonhos!</p>
+</div>
+
+<hr class="my-4" />
+
+<h2 class="text-center mb-4">Pacotes em Destaque</h2>
+
+<div class="row">
+    @if (Model.PacotesEmDestaque.Any())
+    {
+        @foreach (var pacote in Model.PacotesEmDestaque)
+        {
+            <div class="col-md-4 mb-4">
+                <partial name="Shared/_PacoteTuristicoCard" model="pacote" />
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col">
+            <p class="text-center">Nenhum pacote em destaque no momento. Volte em breve!</p>
+        </div>
+    }
+</div>

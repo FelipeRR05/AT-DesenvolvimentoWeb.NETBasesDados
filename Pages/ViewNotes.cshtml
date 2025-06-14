@@ -1,0 +1,58 @@
+﻿@page
+@model AgenciaTurismo.Pages.ViewNotesModel
+@{
+    ViewData["Title"] = "Anotações";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h4>Exercício 8: Leitura e Escrita de Arquivos</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-5">
+        <h3>Criar Nova Anotação</h3>
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="NoteTitle">Título da Anotação</label>
+                <input asp-for="NoteTitle" class="form-control" />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="NoteContent">Conteúdo</label>
+                <textarea asp-for="NoteContent" class="form-control" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar Anotação</button>
+        </form>
+    </div>
+
+    <div class="col-md-7">
+        <h3>Anotações Salvas</h3>
+        @if (Model.NoteFiles.Any())
+        {
+            <ul class="list-group">
+                @foreach (var fileName in Model.NoteFiles)
+                {
+                    <li class="list-group-item">
+                        <a asp-page="/ViewNotes" asp-route-fileName="@fileName">@fileName</a>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>Nenhuma anotação salva ainda.</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.SelectedNoteContent))
+        {
+            <div class="card mt-4">
+                <div class="card-header">
+                    Conteúdo da Anotação
+                </div>
+                <div class="card-body">
+                    <pre>@Model.SelectedNoteContent</pre>
+                </div>
+            </div>
+        }
+    </div>
+</div>
