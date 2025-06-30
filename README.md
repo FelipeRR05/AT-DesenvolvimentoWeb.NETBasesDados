@@ -1,9 +1,1 @@
-AT de Desenvolvimento Web com .NET e Bases de Dados
-
-Aluno: Felipe Roberto Rocha
-
-Curso: Engenharia de Software
-
-Professor: Rinaldo Ferreira
-
-Instituto Infnet
+O projeto consiste em um sistema de gerenciamento para uma agência de turismo que oferece pacotes turísticos, cadastro de clientes, países e cidades de destino. Além de um sistema de notas com leitura e escrita de arquivos.
